@@ -1,99 +1,6 @@
 <template>
   <div id="app">
-    <el-container>
-      <el-header>Header</el-header>
-      <el-container>
-        <el-aside style="width:200px">
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-          <div>aside</div>
-        </el-aside>
-        <el-main>
-          <router-view />
-        </el-main>
-      </el-container>
-    </el-container>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -105,6 +12,9 @@ export default {
 </script>
 
 <style lang="scss">
+  $aside_width:200px;
+  $header_height:60px;
+  $breadcrumb_height:50px;
   #app{
     position: fixed;
     width: 100%;
@@ -118,34 +28,61 @@ export default {
         background-color: #B3C0D1;
         color: #333;
         text-align: center;
-        height: 60px;
+        height: $header_height;
+        display: flex;
+        padding: 0;
+        >.el-aside{
+          width: $aside_width !important;
+          background: skyblue;
+        }
+        >.el-main{
+          padding: 0;
+        }
       }
       >.el-container{
         flex: 1;
         overflow: auto;
         >.el-aside {
+          width: $aside_width !important;
           background-color: #D3DCE6;
           color: #333;
           text-align: center;
-          line-height: 200px;
+          // line-height: 200px;
+          // >div>a{
+          //   display: block;
+          //   height: 100%;
+          // }
+          // >div>a:hover{
+          //   color: skyblue;
+          // }
         }
-        >.el-main {
-          background-color: #E9EEF3;
-          color: #333;
-          text-align: center;
-          line-height: 160px;
+        .breadcrumb-title{
+          background-color:rgba(255,255,255,0.75);
+          border-radius: 10px;
+          >.el-breadcrumb{
+            height: $breadcrumb_height;
+            line-height: $breadcrumb_height;
+            padding:0 20px;
+          }
+        }
+        .main-box{
+          flex: 1;
+          flex-basis: auto;
+          // overflow: auto;
+          box-sizing: border-box;
+          .el-main {
+            background-color: #E9EEF3;
+            color: #333;
+            text-align: center;
+            height: calc(100% - #{$breadcrumb_height});
+            >.content{
+              height: 100%;
+              background: rgba(255,255,255,0.75);
+              border-radius: 10px;
+            }
+          }
         }
       }
     }
-    
-  }
-  
-
-
-
-
-
-  body > .el-container {
-    margin-bottom: 40px;
   }
 </style>

@@ -1,0 +1,7 @@
+@import './mixin.scss';
+@import './reset.css';
+
+//改变滚动条默认样式
+.scroll{
+  @include scrollBar;
+}
