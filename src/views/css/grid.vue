@@ -149,16 +149,16 @@ export default {
   height: 100%;
   overflow: auto;
   .demos{
-    display: grid;
+    display: grid;//grid容器
     grid-template-columns:30% 30% 30%;//定义列宽
     // grid-template-rows:500px 500px 500px;//定义行高
     grid-template-rows:repeat(3, 300px);//repeat函数声明重复值
     // grid-row-gap: 20px;//行间距
     // grid-column-gap: 20px;//列间距
-    grid-gap:20px;//上两者合并简写,可以两个值
-    .items{
+    gap:20px;//上两者合并简写,可以两个值,不推荐grid-gap写法,这个写法已经太老了,使用gap即可
+    .items{//相比于demos是grid子项,相比于item是grid容器
       background: skyblue;
-      display: grid;//也可以是行内元素inline-grid
+      display: grid;//也可以是行内元素inline-grid,inline-grid容器为inline特性，因此可以和图片文字一行显示；grid容器保持块状特性，宽度默认100%，不和内联元素一行显示。
       grid-template-areas:  'a b c'
                             'd e f'
                             'g h i';

@@ -75,6 +75,18 @@ const routes=[
       },
     ]
   },
+  {
+    path: '/demo',
+    name:'测试',
+    component: layout,
+    children: [
+      { 
+        path: '/lunpan', 
+        component:()=>import("@/views/demo/lunpan"),
+        name:'轮盘',
+      },
+    ]
+  },
   // 404处理
   { path: '*', component: NotFound }
 ]
